@@ -1,0 +1,19 @@
+{
+  "name": "pokemones",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "express": "^4.17.1",
+    "node-sass": "^4.13.0",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon server.js",
+    "scss": "node-sass --watch scss -o \"public/\""
+  },
+  "author": "Carlos Anguix",
+  "license": "MIT"
+}

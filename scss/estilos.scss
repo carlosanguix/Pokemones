@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+
+  input {
+    border: 3px solid #1c6ea4;
+    border-radius: 15px;
+  }
+
+  header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100px;
+    }
+
+    #formHeader {
+      margin-top: 5px;
+      input[type="button"] {
+      }
+    }
+  }
+}
