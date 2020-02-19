@@ -10,7 +10,7 @@ function pantallaCarga() {
 
 async function extraerUrlPokemons() {
 
-    return fetch('https://pokeapi.co/api/v2/pokemon?limit=1000')
+    return fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
         .then(res => {
             return res.json();
         }).then(respuesta => {
@@ -25,6 +25,9 @@ async function extraerPokemons() {
         const resp = await fetch(urlPokemons[i].url);
         const json = await resp.json();
 
+        console.log(json);
+        
+
         if (json.sprites.front_default != null) {
             
             pokemons.push({ 
@@ -32,6 +35,7 @@ async function extraerPokemons() {
                 name: json.forms[0].name,
                 types: json.types,
                 moves: [json.moves[0], json.moves[1], json.moves[2], json.moves[3]],
+                movesDesc: [],
                 img: json.sprites.front_default
             });
         }
@@ -72,14 +76,10 @@ async function pintarPokemons(array) {
 
 function mostrarPokedex(pokemon) {
     
-    console.log(window.pageYOffset);
-    
     document.querySelector('body').style.overflow = 'hidden';
     
     let divPokedex = document.getElementById('divPokedex');
     divPokedex.onclick = retirarPokedex;
-    
-    
 
     let pokedex = document.getElementById('pokedex');
     pokedex.onclick = (e) => {
@@ -109,7 +109,7 @@ function mostrarPokedex(pokemon) {
     divPokedex.setAttribute('style', 'top: ' + window.pageYOffset + 'px');
     divPokedex.style.visibility = 'visible';
     console.log(divPokedex.getAttribute('style'));
-    
+
     pokedex.appendChild(types);
 
 }
@@ -136,6 +136,7 @@ function eventos() {
     
 
     botonBuscar.onclick = () => {
+
         let nombrePokemon = buscador.value.toLowerCase();
         console.log(nombrePokemon);
         let pokemonsBuscar = pokemons.filter(pokes => {

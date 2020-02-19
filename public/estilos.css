@@ -25,7 +25,7 @@ body {
       height: 100px; }
     body header #formHeader {
       margin-top: 5px; }
-    body header #buscador {
+    body header input {
       outline: none; }
   body #containerPokemons {
     width: 80%;
@@ -69,8 +69,8 @@ body {
         display: flex;
         flex-direction: column;
         position: relative;
-        top: -400px;
-        left: 100px;
+        top: -450px;
+        left: 110px;
         align-content: space-between; }
         body #divPokedex #pokedex #types img {
           width: 40px;
@@ -81,19 +81,20 @@ body {
         display: flex;
         flex-direction: column;
         width: 260px;
-        left: 360px;
-        top: 15px; }
+        left: 358px;
+        top: 11px; }
         body #divPokedex #pokedex .attacks .attack {
           width: 260px;
           height: 68px;
-          background-color: white;
+          border: 1px solid black;
           border-radius: 10px 10px 10px 10px;
           margin-bottom: 5px;
           text-align: center; }
       body #divPokedex #pokedex p {
         position: relative;
-        top: -20px;
-        left: 100px; }
+        font-size: x-large;
+        top: -48px;
+        left: 28px; }
   body #divCarga {
     display: flex;
     flex-direction: column;

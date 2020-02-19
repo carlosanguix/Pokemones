@@ -33,7 +33,7 @@ body {
       margin-top: 5px;
     }
 
-    #buscador {
+    input {
       outline: none;
     }
   }
@@ -88,8 +88,8 @@ body {
         display: flex;
         flex-direction: column;
         position: relative;
-        top: -400px;
-        left: 100px;
+        top: -450px;
+        left: 110px;
         align-content: space-between;
         
         img {
@@ -104,13 +104,13 @@ body {
         display: flex;
         flex-direction: column;
         width: 260px;
-        left: 360px;
-        top: 15px;
+        left: 358px;
+        top: 11px;
 
         .attack {
           width: 260px;
           height: 68px;
-          background-color: rgb(255, 255, 255);
+          border: 1px solid black;
           border-radius: 10px 10px 10px 10px;
           margin-bottom: 5px;
           text-align: center;
@@ -132,8 +132,9 @@ body {
 
       p {
         position: relative;
-        top: -20px;
-        left: 100px;
+        font-size: x-large;
+        top: -48px;
+        left: 28px;
       }
     }
   }
