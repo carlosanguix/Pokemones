@@ -25,6 +25,8 @@ body {
       height: 100px; }
     body header #formHeader {
       margin-top: 5px; }
+    body header #buscador {
+      outline: none; }
   body #containerPokemons {
     width: 80%;
     display: flex;
@@ -54,7 +56,6 @@ body {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.671); }
     body #divPokedex #pokedex {
-      display: flexbox;
       background-image: url("img/pokedex2.png");
       background-size: cover;
       background-repeat: no-repeat;
@@ -69,6 +70,7 @@ body {
         flex-direction: column;
         position: relative;
         top: -400px;
+        left: 100px;
         align-content: space-between; }
         body #divPokedex #pokedex #types img {
           width: 40px;
@@ -89,9 +91,9 @@ body {
           margin-bottom: 5px;
           text-align: center; }
       body #divPokedex #pokedex p {
-        position: absolute;
-        top: 594px;
-        left: 380px; }
+        position: relative;
+        top: -20px;
+        left: 100px; }
   body #divCarga {
     display: flex;
     flex-direction: column;

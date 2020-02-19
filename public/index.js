@@ -10,7 +10,7 @@ function pantallaCarga() {
 
 async function extraerUrlPokemons() {
 
-    return fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
+    return fetch('https://pokeapi.co/api/v2/pokemon?limit=1000')
         .then(res => {
             return res.json();
         }).then(respuesta => {
@@ -74,13 +74,12 @@ function mostrarPokedex(pokemon) {
     
     console.log(window.pageYOffset);
     
-    console.log(pokemon);
+    document.querySelector('body').style.overflow = 'hidden';
     
     let divPokedex = document.getElementById('divPokedex');
     divPokedex.onclick = retirarPokedex;
-    divPokedex.style.visibility = 'visible';
-    divPokedex.setAttribute('style', 'top: ' + window.pageYOffset + 'px');
-    document.querySelector('body').style.overflow = 'hidden';
+    
+    
 
     let pokedex = document.getElementById('pokedex');
     pokedex.onclick = (e) => {
@@ -107,6 +106,10 @@ function mostrarPokedex(pokemon) {
         <img src="https://veekun.com/dex/media/types/en/${e.type.name}.png">`;
     });
 
+    divPokedex.setAttribute('style', 'top: ' + window.pageYOffset + 'px');
+    divPokedex.style.visibility = 'visible';
+    console.log(divPokedex.getAttribute('style'));
+    
     pokedex.appendChild(types);
 
 }
