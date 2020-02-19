@@ -10,7 +10,7 @@ function pantallaCarga() {
 
 async function extraerUrlPokemons() {
 
-    return fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
+    return fetch('https://pokeapi.co/api/v2/pokemon?limit=1000')
         .then(res => {
             return res.json();
         }).then(respuesta => {
