@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 
 // Configuraciones
 const app = express();
-const port = process.env.port || 3003;
+const port = process.env.port || 3000;
 app.use(bodyParser.json())
 
 // Servicio al cliente /public

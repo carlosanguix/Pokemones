@@ -3,6 +3,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url("https://vignette.wikia.nocookie.net/freakproductions/images/5/50/Wiki-background/revision/latest?cb=20160104180124&path-prefix=es");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-attachment: fixed;
   font-family: "Arial Black", Gadget, sans-serif;
   font-size: 14px;
   color: #000000;
@@ -33,12 +37,61 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: space-between;
       margin-right: 10px;
       margin-bottom: 10px;
-      width: 150px;
-      border: 0px solid rgba(255, 255, 255, 0);
-      background-color: wheat;
+      width: 170px;
+      height: 170px;
+      border: 1px solid #303bdb;
+      background-color: #ffeb7c;
       border-radius: 10px 10px 10px 10px; }
+  body #divPokedex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.671); }
+    body #divPokedex #pokedex {
+      display: flexbox;
+      background-image: url("img/pokedex2.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 650px;
+      height: 440px; }
+      body #divPokedex #pokedex img {
+        position: relative;
+        top: 130px;
+        left: 34px; }
+      body #divPokedex #pokedex #types {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -400px;
+        align-content: space-between; }
+        body #divPokedex #pokedex #types img {
+          width: 40px;
+          height: 20px;
+          margin-bottom: 10px; }
+      body #divPokedex #pokedex .attacks {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 260px;
+        left: 360px;
+        top: 15px; }
+        body #divPokedex #pokedex .attacks .attack {
+          width: 260px;
+          height: 68px;
+          background-color: white;
+          border-radius: 10px 10px 10px 10px;
+          margin-bottom: 5px;
+          text-align: center; }
+      body #divPokedex #pokedex p {
+        position: absolute;
+        top: 594px;
+        left: 380px; }
   body #divCarga {
     display: flex;
     flex-direction: column;

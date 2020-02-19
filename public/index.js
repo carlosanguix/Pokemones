@@ -10,7 +10,7 @@ function pantallaCarga() {
 
 async function extraerUrlPokemons() {
 
-    return fetch('https://pokeapi.co/api/v2/pokemon?limit=1000')
+    return fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
         .then(res => {
             return res.json();
         }).then(respuesta => {
@@ -27,7 +27,7 @@ async function extraerPokemons() {
 
         if (json.sprites.front_default != null) {
             
-            pokemons.push({
+            pokemons.push({ 
                 id: '#' + json.id,
                 name: json.forms[0].name,
                 types: json.types,
@@ -61,8 +61,60 @@ async function pintarPokemons(array) {
         <img src=${array[i].img} alt=${array[i].name}>`;
         divPokemon.appendChild(tipos);
 
+        divPokemon.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            mostrarPokedex(array[i]);
+        });
+
         container.appendChild(divPokemon);
     }
+}
+
+function mostrarPokedex(pokemon) {
+    
+    console.log(window.pageYOffset);
+    
+    console.log(pokemon);
+    
+    let divPokedex = document.getElementById('divPokedex');
+    divPokedex.onclick = retirarPokedex;
+    divPokedex.style.visibility = 'visible';
+    divPokedex.setAttribute('style', 'top: ' + window.pageYOffset + 'px');
+    document.querySelector('body').style.overflow = 'hidden';
+
+    let pokedex = document.getElementById('pokedex');
+    pokedex.onclick = (e) => {
+        e.stopPropagation();
+    }
+
+    pokedex.innerHTML = `
+    <img src="${pokemon.img}">
+    <div class="types"></div>
+    <div class="attacks">
+        <div class="attack one">${pokemon.moves[0].move.name}</div>
+        <div class="attack two">${pokemon.moves[1].move.name}</div>
+        <div class="attack three">${pokemon.moves[2].move.name}</div>
+        <div class="attack four">${pokemon.moves[3].move.name}</div>
+    </div>
+    <p>${pokemon.name}`;
+    
+    let types = document.createElement('div');
+    types.id = 'types';
+
+    pokemon.types.forEach(e => {
+        
+        types.innerHTML += `
+        <img src="https://veekun.com/dex/media/types/en/${e.type.name}.png">`;
+    });
+
+    pokedex.appendChild(types);
+
+}
+
+function retirarPokedex() {
+
+    document.getElementById('divPokedex').style.visibility = 'hidden';
+    document.querySelector('body').style.overflow = 'visible';
 }
 
 function quitarPantallaCarga() {
@@ -75,7 +127,23 @@ function quitarPantallaCarga() {
 function eventos() {
 
     let buscador = document.getElementById('buscador');
-    buscador.onchange = 
+    let botonBuscar = document.getElementById('buscar');
+
+    console.log(pokemons[0]);
+    
+
+    botonBuscar.onclick = () => {
+        let nombrePokemon = buscador.value.toLowerCase();
+        console.log(nombrePokemon);
+        let pokemonsBuscar = pokemons.filter(pokes => {
+            if (nombrePokemon == '') {
+                return pokes;
+            } else if (pokes.name.includes(nombrePokemon)) {
+                return pokes;
+            }
+        });
+        pintarPokemons(pokemonsBuscar);
+    }
 }
 
 async function init() {
